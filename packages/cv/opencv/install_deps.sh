@@ -35,7 +35,7 @@ apt-get install -y --no-install-recommends \
         libjpeg8-dev \
         libjpeg-turbo8-dev \
         libopenimageio-dev \
-        libopenimageio2.4t64 \
+        libopenimageio2.2 \
         openimageio-tools \
         libopenexr-dev \
         liblapack-dev \
@@ -74,8 +74,20 @@ if [ $ARCH != "x86_64" ]; then
 fi
 
 # restore cmake and numpy versions
-bash /tmp/cmake/install.sh
-bash /tmp/numpy/install.sh
+#bash /tmp/cmake/install.sh
+#bash /tmp/numpy/install.sh
+# With these conditional checks:
+if [ -f "/tmp/cmake/install.sh" ]; then
+    bash /tmp/cmake/install.sh
+else
+    echo "INFO: /tmp/cmake/install.sh not found, skipping..."
+fi
+
+if [ -f "/tmp/numpy/install.sh" ]; then
+    bash /tmp/numpy/install.sh
+else
+    echo "INFO: /tmp/numpy/install.sh not found, skipping..."
+fi
 
 rm -rf /var/lib/apt/lists/*
 apt-get clean

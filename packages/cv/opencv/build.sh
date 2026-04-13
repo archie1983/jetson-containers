@@ -102,6 +102,10 @@ export ENABLE_CONTRIB=1
 # Install dependencies for building the wheel
 uv pip install scikit-build
 
+# AE: Create the missing config file path and a dummy file
+RUN mkdir -p /opt/opencv-python/_skbuild/linux-aarch64-3.10/cmake-install/python/cv2 && \
+    echo "# Dummy config for OpenCV Python bindings" > /opt/opencv-python/_skbuild/linux-aarch64-3.10/cmake-install/python/cv2/config-3.py
+
 cat <<EOF > /opt/opencv-python/cv2/version.py
 opencv_version = "${OPENCV_VERSION}"
 contrib = True

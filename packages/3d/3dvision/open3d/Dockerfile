@@ -3,7 +3,7 @@
 # alias: open3d
 # group: cv
 # config: config.py
-# depends: [pytorch, torchvision, torchaudio, torchao, opencv]
+# depends: [opencv]
 # test: [test.py]
 #---
 ARG BASE_IMAGE
@@ -54,11 +54,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     xterm \
     xvfb \
     ne \
-    llvm-17 \
-    clang-17 \
-    libc++-17-dev \
+    llvm-14 \
+    clang-14 \
+    libc++-14-dev \
     lld \
-    libc++abi-17-dev \
+    libc++abi-14-dev \
     libssl-dev \
     libcurl4-openssl-dev \
     && apt-get clean \

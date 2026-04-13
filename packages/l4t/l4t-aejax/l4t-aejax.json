@@ -1,0 +1,6 @@
+{
+    "l4t-aejax": {
+        "group": "ml",
+        "depends": ["jax", "opencv", "open3d", "pycuda"]
+    }
+}

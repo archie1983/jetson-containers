@@ -2,7 +2,7 @@
 # name: opencv
 # group: cv
 # config: config.py
-# depends: [cuda, cudastack:standard, python, numpy, opengl, vulkan, video-codec-sdk, ffmpeg]
+# depends: [python]
 # test: test.py
 # notes: https://github.com/opencv/opencv-python
 #---

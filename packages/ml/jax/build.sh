@@ -14,7 +14,7 @@ cd /opt/jax
 mkdir -p /opt/jax/wheels/
 
 # Initialize flags
-BUILD_FLAGS="--clang_path=/usr/lib/llvm-21/bin/clang --output_path=/opt/jax/wheels/ "
+BUILD_FLAGS="--clang_path=/usr/lib/llvm-20/bin/clang --output_path=/opt/jax/wheels/ "
 
 if [ "${IS_SBSA}" -eq 1 ]; then
     echo "Building for SBSA architecture"
@@ -50,7 +50,7 @@ fi
 
 # Run the build
 # Note: $BUILD_FLAGS is unquoted to allow word splitting of the individual bazel arguments
-python3 build/build.py build $BUILD_FLAGS --wheels=jax,jaxlib,jax-cuda-plugin,jax-cuda-pjrt
+python3 build/build.py build $BUILD_FLAGS --wheels=jaxlib,jax-cuda-plugin,jax-cuda-pjrt
 
 # Upload the wheels to mirror
 twine upload --verbose /opt/jax/wheels/jaxlib-*.whl || echo "failed to upload wheel to ${TWINE_REPOSITORY_URL}"
@@ -61,6 +61,6 @@ twine upload --verbose /opt/jax/wheels/jax-*.whl || echo "failed to upload wheel
 
 # Install them into the container
 cd /opt/jax/wheels/
-uv pip install jaxlib*.whl jax_cuda13_plugin*.whl jax_cuda13_pjrt*.whl opt_einsum
+uv pip install jaxlib*.whl jax_cuda12_plugin*.whl jax_cuda12_pjrt*.whl opt_einsum
 uv pip install jax
 cd /opt/jax
