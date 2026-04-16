@@ -1,3 +1,9 @@
+## Steps to re-create my Jetson container that has JAX 0.6.2, Open3D and OpenCV
+LLVM_VERSION="20" jetson-containers build llvm --name llvm20_ae
+JAX_BUILD_VERSION="0.6.3" jetson-containers build jax --base llvm20_ae:r36.4.tegra-aarch64-cu126-22.04
+jetson-containers build opencv --base jax:r36.4.tegra-aarch64-cu126-22.04 --name ae_jax062_opencv
+docker build -t ae_dreamer_base -f build_ae.dockerfile .
+
 [![a header for a software project about building containers for AI and machine learning](https://raw.githubusercontent.com/dusty-nv/jetson-containers/docs/docs/images/header_blueprint_rainbow.jpg)](https://www.jetson-ai-lab.com)
 
 [![jetson-ai-lab.io status](https://img.shields.io/website?label=jetson-ai-lab.io&url=https%3A%2F%2Fpypi.jetson-ai-lab.io&up_message=up&up_color=brightgreen&down_message=down&down_color=red)](https://pypi.jetson-ai-lab.io)
