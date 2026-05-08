@@ -19,6 +19,7 @@ else
 fi
 
 apt-get update
+#libopenimageio2.4t64
 apt-get install -y --no-install-recommends \
         libunwind-dev \
         libatlas-base-dev \
@@ -35,7 +36,7 @@ apt-get install -y --no-install-recommends \
         libjpeg8-dev \
         libjpeg-turbo8-dev \
         libopenimageio-dev \
-        libopenimageio2.2 \
+        libopenimageio2.4t64 \
         openimageio-tools \
         libopenexr-dev \
         liblapack-dev \
